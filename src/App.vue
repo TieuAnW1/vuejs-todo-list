@@ -26,6 +26,7 @@ export default {
 		} else {
 			this.$i18n.locale = currentLanguageApp;
 		}
+		this.$store.dispatch('initializeTodos');
 	},
 };
 </script>

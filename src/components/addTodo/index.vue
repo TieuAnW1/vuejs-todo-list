@@ -8,6 +8,9 @@
 
 <script>
 import { Text } from '../../constants';
+import { v4 as uuidv4 } from 'uuid';
+import { mapMutations } from 'vuex';
+
 export default {
 	name: 'addTodo',
 	data() {
@@ -20,21 +23,16 @@ export default {
 		};
 	},
 	methods: {
+		...mapMutations(['addTodo']),
 		handleAddNewTodo() {
 			const newTodo = {
+				id: uuidv4(),
 				name: this.nameTodo,
 				deadline: this.deadlineTodo,
+				isCompleted: false,
 			};
 
-			const todos = localStorage.getItem(Text.keyLocalStorage.todos);
-
-			if (todos) {
-				const existingTodos = JSON.parse(todos);
-				existingTodos.push(newTodo);
-				localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify(existingTodos));
-			} else {
-				localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify([newTodo]));
-			}
+			this.$store.dispatch('addNewTodo', newTodo);
 			this.nameTodo = '';
 			this.deadlineTodo = '';
 		},
