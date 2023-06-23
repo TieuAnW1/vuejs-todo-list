@@ -2,17 +2,21 @@
 	<div class="addTodo">
 		<input type="text" v-model="nameTodo" />
 		<input type="date" v-model="deadlineTodo" />
-		<button @click="handleAddNewTodo">Add</button>
+		<button @click="handleAddNewTodo">{{ $t(text.add) }}</button>
 	</div>
 </template>
 
 <script>
+import { Text } from '../../constants';
 export default {
 	name: 'addTodo',
 	data() {
 		return {
 			nameTodo: '',
 			deadlineTodo: '',
+			text: {
+				add: Text.add,
+			},
 		};
 	},
 	methods: {
@@ -22,14 +26,14 @@ export default {
 				deadline: this.deadlineTodo,
 			};
 
-			const todos = localStorage.getItem('todos');
+			const todos = localStorage.getItem(Text.keyLocalStorage.todos);
 
 			if (todos) {
 				const existingTodos = JSON.parse(todos);
 				existingTodos.push(newTodo);
-				localStorage.setItem('todos', JSON.stringify(existingTodos));
+				localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify(existingTodos));
 			} else {
-				localStorage.setItem('todos', JSON.stringify([newTodo]));
+				localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify([newTodo]));
 			}
 			this.nameTodo = '';
 			this.deadlineTodo = '';
