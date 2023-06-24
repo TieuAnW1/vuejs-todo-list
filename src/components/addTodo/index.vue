@@ -1,7 +1,13 @@
 <template>
 	<div class="addTodo">
 		<div class="nameTodo">
-			<input class="" type="text" v-model="nameTodo" :placeholder="$t(text.placeHolder.yourTodo)" />
+			<input
+				class=""
+				type="text"
+				v-model="nameTodo"
+				:placeholder="$t(text.placeHolder.yourTodo)"
+				ref="nameTodoInput"
+			/>
 			<oh-vue-icon v-if="nameTodo.length > 0" class="BiXCircle" name="bi-x-circle" @click="clearNameTodo" />
 		</div>
 		<input type="date" v-model="deadlineTodo" :class="{ changed: isDeadlineChanged }" />
@@ -55,6 +61,11 @@ export default {
 		deadlineTodo(newValue, oldValue) {
 			if (newValue !== oldValue) this.isDeadlineChanged = true;
 		},
+	},
+	mounted() {
+		this.$nextTick(() => {
+			this.$refs.nameTodoInput.focus();
+		});
 	},
 };
 </script>
