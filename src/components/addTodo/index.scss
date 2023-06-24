@@ -1,0 +1,66 @@
+.addTodo {
+	width: 100%;
+	height: var(--default-height);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: var(--default-margin-between-sections);
+
+	& .nameTodo {
+		width: 60%;
+		height: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
+		min-width: var(--min-width-input);
+		margin-right: var(--distance-margin-to-next-item);
+
+		& input {
+			width: 100%;
+			min-width: var(--min-width-input);
+		}
+
+		& .BiXCircle {
+			position: absolute;
+			right: calc(var(--default-height) / 2);
+			color: var(--placeholder-color);
+			font-size: var(--default-font-size);
+
+			&:hover {
+				cursor: pointer;
+				color: var(--text-color);
+			}
+		}
+	}
+
+	& input {
+		width: 30%;
+		min-width: 15.2rem;
+		margin-right: var(--distance-margin-to-next-item);
+	}
+
+	& button {
+		min-width: var(--default-height);
+		width: var(--default-height);
+		height: 100%;
+		border-radius: 50%;
+		font-size: calc(var(--default-font-size) * 2);
+		color: var(--white-color);
+		background: radial-gradient(circle, var(--top-bg-color), var(--bottom-bg-color));
+		opacity: var(--default-decreased-opacity);
+		box-shadow: var(--default-shadow);
+
+		&:disabled {
+			pointer-events: none;
+		}
+
+		&:not(:disabled):hover {
+			cursor: pointer;
+			opacity: var(--default-opacity);
+		}
+	}
+}
+
+input[type='date'].changed {
+	color: var(--text-color);
+}

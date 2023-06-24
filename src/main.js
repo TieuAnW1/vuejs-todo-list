@@ -3,9 +3,9 @@ import App from './App.vue';
 import i18n from './i18n';
 import store from './vueX/store';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
-import { RiDeleteBinLine } from 'oh-vue-icons/icons';
+import { RiDeleteBinLine, BiXCircle } from 'oh-vue-icons/icons';
 
-addIcons(RiDeleteBinLine);
+addIcons(RiDeleteBinLine, BiXCircle);
 
 const app = createApp(App);
 app.use(store);

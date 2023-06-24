@@ -4,10 +4,12 @@
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	margin-bottom: var(--default-margin-between-sections);
 }
 
 .headerComponent h2 {
 	color: var(--white-color);
+	font-size: var(--default-h2-font-size);
 }
 
 .headerComponent select {

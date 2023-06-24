@@ -3,13 +3,19 @@ const Text = {
 		en: 'en',
 		vi: 'vi',
 	},
-	add: 'Add',
 	keyLocalStorage: {
 		currentLanguageApp: 'currentLanguageApp',
 		todos: 'todos',
 	},
 	textInTag: {
+		add: 'Add',
 		todoList: 'TO DO LIST',
+	},
+	symbol: {
+		plus: '+',
+	},
+	placeholder: {
+		yourTodo: 'Your to do...',
 	},
 };
 

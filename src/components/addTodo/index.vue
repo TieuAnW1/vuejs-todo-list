@@ -1,8 +1,13 @@
 <template>
 	<div class="addTodo">
-		<input type="text" v-model="nameTodo" />
-		<input type="date" v-model="deadlineTodo" />
-		<button @click="handleAddNewTodo">{{ $t(text.add) }}</button>
+		<div class="nameTodo">
+			<input class="" type="text" v-model="nameTodo" :placeholder="$t(text.placeHolder.yourTodo)" />
+			<oh-vue-icon v-if="nameTodo.length > 0" class="BiXCircle" name="bi-x-circle" @click="clearNameTodo" />
+		</div>
+		<input type="date" v-model="deadlineTodo" :class="{ changed: isDeadlineChanged }" />
+		<button @click="handleAddNewTodo" :title="$t(text.add)" :disabled="nameTodo === '' || deadlineTodo === ''">{{
+			text.plus
+		}}</button>
 	</div>
 </template>
 
@@ -17,8 +22,14 @@ export default {
 		return {
 			nameTodo: '',
 			deadlineTodo: '',
+			isEmptyInput: false,
+			isDeadlineChanged: false,
 			text: {
-				add: Text.add,
+				add: Text.textInTag.add,
+				plus: Text.symbol.plus,
+				placeHolder: {
+					yourTodo: Text.placeholder.yourTodo,
+				},
 			},
 		};
 	},
@@ -36,12 +47,18 @@ export default {
 			this.nameTodo = '';
 			this.deadlineTodo = '';
 		},
+		clearNameTodo() {
+			this.nameTodo = '';
+		},
+	},
+	watch: {
+		deadlineTodo(newValue, oldValue) {
+			if (newValue !== oldValue) this.isDeadlineChanged = true;
+		},
 	},
 };
 </script>
 
 <style scoped>
-.addTodo {
-	background-color: aqua;
-}
+@import './index.scss';
 </style>
