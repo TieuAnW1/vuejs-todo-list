@@ -19,6 +19,13 @@ const store = createStore({
 			state.todos = state.todos.filter((todo) => todo.id !== id);
 			localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify(state.todos));
 		},
+		toggleIsCompletedTodo(state, id) {
+			const todo = state.todos.find((todo) => todo.id === id);
+			if (todo) {
+				todo.isCompleted = !todo.isCompleted;
+				localStorage.setItem(Text.keyLocalStorage.todos, JSON.stringify(state.todos));
+			}
+		},
 	},
 	actions: {
 		initializeTodos({ commit }) {
@@ -30,6 +37,9 @@ const store = createStore({
 		},
 		deleteTodo({ commit }, idTodo) {
 			commit('deleteTodo', idTodo);
+		},
+		toggleIsCompletedTodo({ commit }, idTodo) {
+			commit('toggleIsCompletedTodo', idTodo);
 		},
 	},
 });

@@ -13,10 +13,135 @@
 			width: 70%;
 			object-fit: scale-down;
 		}
+	}
 
-		& h3 {
-			color: var(--text-color);
-			font-size: var(--default-h3-font-size);
+	& .existenceTodo {
+		height: 88%;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: var(--scroll-bar-width);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			border-radius: var(--scroll-bar-width);
+			background: linear-gradient(to bottom, var(--completed-todo-hover), var(--bg-item-todo));
+		}
+
+		&::-webkit-scrollbar-track {
+			background: var(--white-color);
+			border-radius: var(--scroll-bar-width);
+		}
+
+		& .itemTodo {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-bottom: var(--padding-default);
+			padding: var(--padding-default);
+			width: 100%;
+			height: var(--height-item-todo);
+			border-radius: var(--border-item-todo);
+			background: var(--bg-item-todo);
+			box-shadow: var(--item-todo-shadow);
+
+			&:hover {
+				cursor: default;
+				background: var(--white-color);
+			}
+
+			&.completedTodo {
+				background: var(--completed-todo);
+				box-shadow: var(--item-todo-shadow);
+
+				&:hover {
+					background: var(--completed-todo-hover);
+				}
+
+				& .actions {
+					& .riDeleteBinLine {
+						color: var(--white-color);
+					}
+				}
+
+				& .infoTodo {
+					& .mdDownloaddoneRound {
+						color: var(--tick-completed-todo);
+					}
+
+					& .valuesTodo {
+						& h3 {
+							color: var(--white-color);
+						}
+
+						& .deadlineTodo {
+							color: var(--white-color);
+
+							& span {
+								color: var(--white-color);
+							}
+						}
+					}
+				}
+			}
+
+			& .actions {
+				width: var(--default-height);
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: end;
+
+				& .riDeleteBinLine {
+					scale: var(--scale-delete-icon);
+					color: var(--delete-icon-color);
+					opacity: var(--default-decreased-opacity);
+
+					&:hover {
+						cursor: pointer;
+						opacity: var(--default-opacity);
+					}
+				}
+			}
+
+			& .infoTodo {
+				display: flex;
+				align-items: center;
+				justify-content: start;
+				gap: var(--distance-margin-to-next-item);
+				width: calc(100% - var(--default-height));
+
+				& .mdDownloaddoneRound {
+					scale: var(--scale-tick-icon);
+					color: var(--text-color);
+					opacity: var(--default-decreased-opacity);
+
+					&:hover {
+						cursor: pointer;
+						opacity: var(--default-opacity);
+					}
+				}
+
+				& .valuesTodo {
+					width: 100%;
+
+					& h3 {
+						width: 98%;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						margin-bottom: var(--distance-lines-text);
+					}
+
+					& .deadlineTodo {
+						color: var(--black-color);
+
+						& span {
+							color: var(--deadline-todo-color);
+						}
+					}
+				}
+			}
 		}
 	}
 }

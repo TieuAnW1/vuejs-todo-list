@@ -1,9 +1,9 @@
 .addTodo {
 	position: fixed;
-	bottom: var(--padding-right-and-left-wrapper-class);
-	padding-right: var(--padding-right-and-left-wrapper-class);
+	bottom: var(--padding-default);
+	padding-right: var(--padding-default);
 	width: inherit;
-	max-width: calc(100% - var(--padding-right-and-left-wrapper-class));
+	max-width: calc(100% - var(--padding-default));
 	height: var(--default-height);
 	display: flex;
 	align-items: center;

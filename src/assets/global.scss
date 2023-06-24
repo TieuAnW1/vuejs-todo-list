@@ -3,18 +3,26 @@
 :root {
 	/* Color  */
 	--white-color: #fff;
-	--black-color: #000;
+	--black-color: #555;
 	--top-bg-color: #72b1bc;
 	--bottom-bg-color: #b6e8f0;
 	--text-color: #2e90a1;
 	--placeholder-color: #868686;
+	--delete-icon-color: #515151;
+	--bg-item-todo: #fff9f9;
+	--deadline-todo-color: #232323;
+	--completed-todo: #9ed1db;
+	--completed-todo-hover: #98d2de;
+	--tick-completed-todo: #24bf31;
 
 	/* Width  */
 	--max-app-width: 660px;
 	--min-width-input: 5rem;
+	--scroll-bar-width: 1.6rem;
 
 	/* Height  */
 	--default-height: 44px;
+	--height-item-todo: 6.4rem;
 
 	/* Font-size  */
 	--default-font-size: 16px;
@@ -23,6 +31,7 @@
 
 	/* Line-height  */
 	--default-line-height: 16px;
+	--h3-line-height: 2.4rem;
 
 	/* Opacity  */
 	--default-opacity: 1;
@@ -31,12 +40,21 @@
 	/* Margin */
 	--default-margin-between-sections: 1rem;
 	--distance-margin-to-next-item: 0.8rem;
+	--distance-lines-text: 0.4rem;
 
 	/* Box shadow */
 	--default-shadow: 0px 0px 8px 2px var(--white-color);
+	--item-todo-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
 	/* Padding */
-	--padding-right-and-left-wrapper-class: 0.8rem;
+	--padding-default: 0.8rem;
+
+	/* Border radius*/
+	--border-item-todo: 0.4rem;
+
+	/* Scale */
+	--scale-delete-icon: 1.1;
+	--scale-tick-icon: 1.6;
 }
 
 * {
@@ -57,6 +75,12 @@ body {
 	background: linear-gradient(to bottom, var(--top-bg-color), var(--bottom-bg-color));
 	font-size: var(--default-font-size);
 	line-height: var(--default-line-height);
+}
+
+h3 {
+	color: var(--text-color);
+	font-size: var(--default-h3-font-size);
+	line-height: var(--h3-line-height);
 }
 
 input,
@@ -87,7 +111,7 @@ input[type='date'] {
 .wrapper {
 	width: 100%;
 	height: 100vh;
-	padding: 0 var(--padding-right-and-left-wrapper-class);
+	padding: 0 var(--padding-default);
 }
 
 .content {

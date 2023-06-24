@@ -11,9 +11,12 @@ const Text = {
 		add: 'Add',
 		todoList: 'TO DO LIST',
 		noTodo: 'Seems like you have no todo.',
+		deadline: 'Deadline',
 	},
 	symbol: {
 		plus: '+',
+		dot: '.',
+		colon: ':',
 	},
 	placeholder: {
 		yourTodo: 'Your to do...',
