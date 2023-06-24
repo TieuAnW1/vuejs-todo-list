@@ -1,0 +1,22 @@
+.listTodo {
+	width: 100%;
+	height: calc(100vh - var(--default-height));
+
+	& .noTodo {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 80%;
+
+		& img {
+			width: 70%;
+			object-fit: scale-down;
+		}
+
+		& h3 {
+			color: var(--text-color);
+			font-size: var(--default-h3-font-size);
+		}
+	}
+}

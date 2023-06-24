@@ -1,10 +1,13 @@
 .addTodo {
-	width: 100%;
+	position: fixed;
+	bottom: var(--padding-right-and-left-wrapper-class);
+	padding-right: var(--padding-right-and-left-wrapper-class);
+	width: inherit;
+	max-width: calc(100% - var(--padding-right-and-left-wrapper-class));
 	height: var(--default-height);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin-bottom: var(--default-margin-between-sections);
 
 	& .nameTodo {
 		width: 60%;
