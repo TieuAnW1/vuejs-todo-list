@@ -1,0 +1,25 @@
+.headerComponent {
+	height: var(--default-height);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.headerComponent h2 {
+	color: var(--white-color);
+}
+
+.headerComponent select {
+	position: absolute;
+	height: inherit;
+	right: 0;
+	background: transparent;
+	color: var(--white-color);
+	opacity: var(--default-decreased-opacity);
+
+	&:hover {
+		opacity: var(--default-opacity);
+		cursor: pointer;
+	}
+}

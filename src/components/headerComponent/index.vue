@@ -1,6 +1,6 @@
 <template>
 	<div class="headerComponent">
-		<input type="text" placeholder="Son app" />
+		<h2>{{ $t(textInTag.title) }}</h2>
 		<select v-model="$i18n.locale" @change="handleChangeLanguageApp">
 			<option v-for="value in language" :key="value" :value="value">{{ capitalizedFirstLetter(value) }}</option>
 		</select>
@@ -15,6 +15,9 @@ export default {
 	data() {
 		return {
 			language: Text.language,
+			textInTag: {
+				title: Text.textInTag.todoList,
+			},
 		};
 	},
 	methods: {
@@ -33,3 +36,6 @@ export default {
 	},
 };
 </script>
+<style>
+@import './index.scss';
+</style>

@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+:root {
+	/* Color  */
+	--white-color: #fff;
+	--black-color: #000;
+	--top-bg-color: #72b1bc;
+	--bottom-bg-color: #b6e8f0;
+
+	/* Width  */
+	--max-app-width: 720px;
+
+	/* Height  */
+	--default-height: 44px;
+
+	/* Font-size  */
+	--default-font-size: 16px;
+
+	/* Line-height  */
+	--default-line-height: 16px;
+
+	/* Opacity  */
+	--default-opacity: 1;
+	--default-decreased-opacity: 0.7;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Source Sans Pro', sans-serif;
+	max-width: 100vw;
+	overflow: hidden;
+	text-rendering: optimizeSpeed;
+	background: linear-gradient(to bottom, var(--top-bg-color), var(--bottom-bg-color));
+	font-size: var(--default-font-size);
+	line-height: var(--default-line-height);
+}
+
+input,
+button,
+select {
+	outline: none;
+	border: none;
+}
+
+input {
+	min-width: 10rem;
+}
+
+.wrapper {
+	width: 100vw;
+	height: 100vh;
+}
+
+.content {
+	margin: 2rem auto;
+	width: var(--max-app-width);
+}

@@ -8,6 +8,9 @@ const Text = {
 		currentLanguageApp: 'currentLanguageApp',
 		todos: 'todos',
 	},
+	textInTag: {
+		todoList: 'TO DO LIST',
+	},
 };
 
 export default Text;
