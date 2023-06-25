@@ -18,9 +18,11 @@
 </template>
 
 <script>
-import { Text } from '../../constants';
+import { Text, SuccessfulMessages, ToastOptions } from '../../constants';
 import { v4 as uuidv4 } from 'uuid';
 import { mapMutations } from 'vuex';
+import { useToast } from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 export default {
 	name: 'addTodo',
@@ -49,9 +51,15 @@ export default {
 				isCompleted: false,
 			};
 
-			this.$store.dispatch('addNewTodo', newTodo);
-			this.nameTodo = '';
-			this.deadlineTodo = '';
+			try {
+				this.$store.dispatch('addNewTodo', newTodo);
+				const successfulMessage = this.$t(SuccessfulMessages.add);
+				useToast().success(successfulMessage, ToastOptions);
+				this.nameTodo = '';
+				this.deadlineTodo = '';
+			} catch (error) {
+				console.log(error);
+			}
 		},
 		clearNameTodo() {
 			this.nameTodo = '';
