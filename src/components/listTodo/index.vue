@@ -1,12 +1,12 @@
 <template>
 	<div class="listTodo">
-		<div v-if="todos.length === 0" class="noTodo">
+		<div v-if="sortedTodos.length === 0" class="noTodo">
 			<img :src="pathImages.noTodo.src" :alt="pathImages.noTodo.alt" />
 			<h3>{{ $t(noTodoText) }}</h3>
 		</div>
 		<div v-else class="existenceTodo">
 			<div
-				v-for="(todo, index) in todos"
+				v-for="(todo, index) in sortedTodos"
 				:key="todo.id"
 				:class="todo.isCompleted ? 'itemTodo completedTodo' : 'itemTodo'"
 			>
@@ -67,8 +67,9 @@ export default {
 		},
 	},
 	computed: {
-		todos() {
-			return this.$store.state.todos;
+		sortedTodos() {
+			const copiedTodos = this.$store.state.todos.slice();
+			return copiedTodos.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
 		},
 	},
 };
