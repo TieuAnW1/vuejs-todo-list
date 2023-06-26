@@ -1,16 +1,15 @@
 <template>
 	<div class="addTodo">
 		<div class="nameTodo">
-			<input
-				class=""
-				type="text"
-				v-model="nameTodo"
-				:placeholder="$t(text.placeHolder.yourTodo)"
-				ref="nameTodoInput"
-			/>
+			<input type="text" v-model="nameTodo" :placeholder="$t(text.placeHolder.yourTodo)" ref="nameTodoInput" />
 			<oh-vue-icon v-if="nameTodo.length > 0" class="BiXCircle" name="bi-x-circle" @click="clearNameTodo" />
 		</div>
-		<input type="date" v-model="deadlineTodo" :class="{ changed: isDeadlineChanged }" />
+		<input
+			type="date"
+			v-model="deadlineTodo"
+			:class="{ changed: isDeadlineChanged }"
+			@change="handleChangeDeadline"
+		/>
 		<button @click="handleAddNewTodo" :title="$t(text.add)" :disabled="nameTodo === '' || deadlineTodo === ''">{{
 			text.plus
 		}}</button>
@@ -57,17 +56,18 @@ export default {
 				useToast().success(successfulMessage, ToastOptions);
 				this.nameTodo = '';
 				this.deadlineTodo = '';
+				this.isDeadlineChanged = false;
+				this.$refs.nameTodoInput.focus();
 			} catch (error) {
 				console.log(error);
 			}
 		},
 		clearNameTodo() {
 			this.nameTodo = '';
+			this.$refs.nameTodoInput.focus();
 		},
-	},
-	watch: {
-		deadlineTodo(newValue, oldValue) {
-			if (newValue !== oldValue) this.isDeadlineChanged = true;
+		handleChangeDeadline() {
+			this.isDeadlineChanged = true;
 		},
 	},
 	mounted() {

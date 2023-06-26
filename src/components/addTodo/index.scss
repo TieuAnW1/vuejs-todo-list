@@ -8,6 +8,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	z-index: var(--second-z-index);
 
 	& .nameTodo {
 		width: 60%;
@@ -16,16 +17,17 @@
 		display: flex;
 		align-items: center;
 		min-width: var(--min-width-input);
-		margin-right: var(--distance-margin-to-next-item);
+		margin-right: calc(var(--distance-margin-to-next-item) / 2);
 
 		& input {
 			width: 100%;
 			min-width: var(--min-width-input);
+			padding-right: calc(var(--padding-default) * 5);
 		}
 
 		& .BiXCircle {
 			position: absolute;
-			right: calc(var(--default-height) / 2);
+			right: calc(var(--padding-default) * 2);
 			color: var(--placeholder-color);
 			font-size: var(--default-font-size);
 
@@ -39,7 +41,7 @@
 	& input {
 		width: 30%;
 		min-width: 15.2rem;
-		margin-right: var(--distance-margin-to-next-item);
+		margin-right: calc(var(--distance-margin-to-next-item) / 2);
 	}
 
 	& button {

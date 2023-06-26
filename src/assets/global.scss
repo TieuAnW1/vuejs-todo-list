@@ -16,6 +16,8 @@
 	--tick-completed-todo: #24bf31;
 	--overlay-color: rgba(0, 0, 0, 0.6);
 	--flag-border-color: #d3d3d3;
+	--border-input-focus-color: #2baeda;
+	--shadow-input-focus-color: rgba(62, 152, 220, 0.25);
 
 	/* Width  */
 	--max-app-width: 660px;
@@ -106,7 +108,7 @@ select {
 input {
 	min-width: var(--min-width-input);
 	height: 100%;
-	padding: 0 1.6rem;
+	padding: 0 calc(var(--padding-default) * 2);
 	border-radius: calc(var(--default-height) / 2);
 	caret-color: var(--text-color);
 	color: var(--text-color);
@@ -114,6 +116,11 @@ input {
 
 	&::placeholder {
 		color: var(--placeholder-color);
+	}
+
+	&:focus-within {
+		border: 1px solid var(--border-input-focus-color);
+		box-shadow: 0 0 0 0.3rem var(--shadow-input-focus-color);
 	}
 }
 
