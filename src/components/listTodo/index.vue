@@ -14,7 +14,7 @@
 					<oh-vue-icon
 						class="mdDownloaddoneRound"
 						name="md-downloaddone-round"
-						@click="handleCompleteTodo(todo.id)"
+						@click="handleCompleteTodo(todo)"
 					/>
 					<div class="valuesTodo">
 						<h3 :title="formatOrdinalNumbers(index) + symbols.dot + ' ' + todo.name">
@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import { PathImages, Text, Numbers, WarningToastOptions } from '../../constants';
+import { PathImages, Text, Numbers, WarningToastOptions, ToastOptions, SuccessfulMessages } from '../../constants';
 import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
@@ -85,8 +85,20 @@ export default {
 		handleDeleteTodo(idTodo) {
 			this.$store.dispatch('deleteTodo', idTodo);
 		},
-		handleCompleteTodo(idTodo) {
-			this.$store.dispatch('toggleIsCompletedTodo', idTodo);
+		handleCompleteTodo(todo) {
+			try {
+				this.$store.dispatch('toggleIsCompletedTodo', todo.id);
+				if (todo.isCompleted) {
+					const congratulationsMessage =
+						this.$t(SuccessfulMessages.congratulationsCompletedTodo) +
+						Text.symbol.doubleQuote +
+						this.handleTodoNameInToast(todo.name) +
+						Text.symbol.doubleQuote;
+					useToast().success(congratulationsMessage, ToastOptions);
+				}
+			} catch (error) {
+				console.log(error);
+			}
 		},
 		checkTodosDeadline() {
 			if (this.sortedTodos.length > 0) {
