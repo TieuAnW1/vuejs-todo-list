@@ -31,6 +31,9 @@ const Text = {
 	confirmDeleteQuestion: 'Are you sure you want to delete todo ',
 	no: 'No',
 	yes: 'Yes',
+	nameEvent: {
+		click: 'click',
+	},
 };
 
 export default Text;

@@ -15,11 +15,15 @@
 	--completed-todo-hover: #98d2de;
 	--tick-completed-todo: #24bf31;
 	--overlay-color: rgba(0, 0, 0, 0.6);
+	--flag-border-color: #d3d3d3;
 
 	/* Width  */
 	--max-app-width: 660px;
 	--min-width-input: 5rem;
 	--scroll-bar-width: 1.6rem;
+	--flag-and-dropdown-width: 6.4rem;
+	--dropdown-width: 2rem;
+	--image-flag: 3.6rem;
 
 	/* Height  */
 	--default-height: 44px;
@@ -57,6 +61,13 @@
 	/* Scale */
 	--scale-delete-icon: 1.1;
 	--scale-tick-icon: 1.6;
+	--scale-dropdown-icon: 1.5;
+
+	/* Gap */
+	--default-gap: 0.4rem;
+
+	/* Z-index */
+	--second-z-index: 2;
 }
 
 * {

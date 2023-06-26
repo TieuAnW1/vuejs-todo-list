@@ -65,7 +65,6 @@ export default {
 			return index + 1;
 		},
 		openModalConfirm(todo) {
-			this.isOpenModalConfirm = true;
 			this.$confirm({
 				message:
 					this.$t(Text.confirmDeleteQuestion) +
