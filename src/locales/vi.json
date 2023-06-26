@@ -6,5 +6,8 @@
 	"Seems like you have no todo.": "Dường như bạn chưa có việc cần làm.",
 	"Deadline": "Ngày hoàn thành",
 	"Added new todo successfully.": "Thêm mới 1 việc cần làm thành công.",
-	"Upcoming Deadline Todo In The Next 24 Hours": "Công Việc Sắp Đến Hạn Trong 24 Giờ Tới"
+	"Upcoming Deadline Todo In The Next 24 Hours": "Công Việc Sắp Đến Hạn Trong 24 Giờ Tới",
+	"Are you sure you want to delete todo ": "Bạn có chắc là bạn muốn xoá việc ",
+	"No": "Không",
+	"Yes": "Có"
 }

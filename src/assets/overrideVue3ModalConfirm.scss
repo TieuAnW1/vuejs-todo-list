@@ -1,0 +1,21 @@
+.vc-overlay {
+	background-color: var(--overlay-color) !important;
+}
+.vc-container {
+	width: calc(var(--max-app-width) * 0.8) !important;
+	max-width: calc(100vw - var(--padding-default)) !important;
+	background-color: var(--white-color) !important;
+	border-radius: var(--border-item-todo) !important;
+}
+.vc-text {
+	color: var(--black-color) !important;
+	font-weight: bold !important;
+	font-size: var(--title-modal-confirm-font-size) !important;
+}
+.vc-btn {
+	font-size: var(--default-font-size) !important;
+	color: var(--text-color) !important;
+}
+.vc-btn.left {
+	color: var(--black-color) !important;
+}

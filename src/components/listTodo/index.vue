@@ -26,9 +26,10 @@
 					</div>
 				</div>
 				<div class="actions">
-					<oh-vue-icon name="ri-delete-bin-line" @click="handleDeleteTodo(todo.id)" class="riDeleteBinLine" />
+					<oh-vue-icon name="ri-delete-bin-line" @click="openModalConfirm(todo)" class="riDeleteBinLine" />
 				</div>
 			</div>
+			<vue3-confirm-dialog></vue3-confirm-dialog>
 		</div>
 	</div>
 </template>
@@ -62,6 +63,25 @@ export default {
 	methods: {
 		formatOrdinalNumbers(index) {
 			return index + 1;
+		},
+		openModalConfirm(todo) {
+			this.isOpenModalConfirm = true;
+			this.$confirm({
+				message:
+					this.$t(Text.confirmDeleteQuestion) +
+					Text.symbol.doubleQuote +
+					this.handleTodoNameInToast(todo.name) +
+					Text.symbol.doubleQuote +
+					' ' +
+					Text.symbol.questionMark,
+				button: {
+					no: this.$t(Text.no),
+					yes: this.$t(Text.yes),
+				},
+				callback: (confirm) => {
+					if (confirm) this.handleDeleteTodo(todo.id);
+				},
+			});
 		},
 		handleDeleteTodo(idTodo) {
 			this.$store.dispatch('deleteTodo', idTodo);

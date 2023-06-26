@@ -17,6 +17,8 @@ const Text = {
 		plus: '+',
 		dot: '.',
 		colon: ':',
+		questionMark: '?',
+		doubleQuote: '"',
 	},
 	placeholder: {
 		yourTodo: 'Your to do...',
@@ -26,6 +28,9 @@ const Text = {
 	},
 	upcomingDeadlineTodo: 'Upcoming Deadline Todo In The Next 24 Hours',
 	ellipsis: '...',
+	confirmDeleteQuestion: 'Are you sure you want to delete todo ',
+	no: 'No',
+	yes: 'Yes',
 };
 
 export default Text;

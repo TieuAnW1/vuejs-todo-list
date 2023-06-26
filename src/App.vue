@@ -33,4 +33,5 @@ export default {
 
 <style>
 @import './assets/global.scss';
+@import './assets/overrideVue3ModalConfirm.scss';
 </style>
