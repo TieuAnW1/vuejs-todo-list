@@ -24,6 +24,8 @@ const Text = {
 	alt: {
 		noTodo: 'No todo image',
 	},
+	upcomingDeadlineTodo: 'Upcoming Deadline Todo In The Next 24 Hours',
+	ellipsis: '...',
 };
 
 export default Text;

@@ -34,7 +34,10 @@
 </template>
 
 <script>
-import { PathImages, Text } from '../../constants';
+import { PathImages, Text, Numbers, WarningToastOptions } from '../../constants';
+import { useToast } from 'vue-toast-notification';
+import 'vue-toast-notification/dist/theme-sugar.css';
+
 export default {
 	name: 'listTodo',
 	data() {
@@ -53,6 +56,7 @@ export default {
 			textInTag: {
 				deadline: Text.textInTag.deadline,
 			},
+			toastQueue: [],
 		};
 	},
 	methods: {
@@ -65,12 +69,51 @@ export default {
 		handleCompleteTodo(idTodo) {
 			this.$store.dispatch('toggleIsCompletedTodo', idTodo);
 		},
+		checkTodosDeadline() {
+			if (this.sortedTodos.length > 0) {
+				const now = new Date();
+
+				this.sortedTodos.forEach((todo) => {
+					const deadlineTodo = new Date(todo.deadline);
+					const timeDiff = deadlineTodo - now;
+					if (timeDiff <= Numbers.hour.twentyFour && timeDiff >= 0 && !todo.isCompleted)
+						this.toastQueue.push(todo);
+				});
+
+				this.showNextToast();
+			}
+		},
+		showNextToast() {
+			if (this.toastQueue.length > 0) {
+				const todo = this.toastQueue.shift();
+				this.showToast(todo);
+				setTimeout(this.showNextToast, Numbers.second.two);
+			}
+		},
+		showToast(todo) {
+			const nameTodoInToast = this.handleTodoNameInToast(todo.name);
+			useToast().warning(
+				this.$t(Text.upcomingDeadlineTodo) + Text.symbol.colon + '<br>' + nameTodoInToast,
+				WarningToastOptions,
+			);
+		},
+		handleTodoNameInToast(nameTodo) {
+			return nameTodo.length <= Numbers.maxCharacterLimitOfTodoNameInToast
+				? nameTodo
+				: nameTodo.slice(0, Numbers.maxCharacterLimitOfTodoNameInToast) + Text.ellipsis;
+		},
 	},
 	computed: {
 		sortedTodos() {
 			const copiedTodos = this.$store.state.todos.slice();
 			return copiedTodos.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
 		},
+	},
+	mounted() {
+		setTimeout(() => {
+			this.checkTodosDeadline();
+			setInterval(this.checkTodosDeadline, Numbers.minute.two);
+		}, Numbers.second.three);
 	},
 };
 </script>

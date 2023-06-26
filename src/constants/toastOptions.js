@@ -1,6 +1,13 @@
-const toastOptions = {
+const ToastOptions = {
 	position: 'top-right',
 	duration: 3000,
 };
 
-export default toastOptions;
+const WarningToastOptions = {
+	...ToastOptions,
+	style: {
+		'line-height': '1.5',
+	},
+};
+
+export { ToastOptions, WarningToastOptions };
