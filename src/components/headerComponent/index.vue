@@ -16,7 +16,7 @@
 				></oh-vue-icon>
 			</div>
 		</div>
-		<div class="languages" v-if="isOpenFlags">
+		<div class="languages" v-if="isOpenFlags" v-click-outside="handleClickOutsideFlags">
 			<div class="flags" v-for="flag in otherLanguages" :key="flag.path" @click="handleChangeLanguageApp(flag)">
 				<img :src="flag.path" :alt="flag.alt" />
 				<p>{{ capitalizedFirstLetter(flag.lang) }}</p>
@@ -41,6 +41,9 @@ export default {
 		};
 	},
 	methods: {
+		handleClickOutsideFlags() {
+			this.isOpenFlags = false;
+		},
 		handleChangeLanguageApp(selectedFlag) {
 			this.$i18n.locale = selectedFlag.lang;
 			localStorage.setItem(Text.keyLocalStorage.currentLanguageApp, selectedFlag.lang);
