@@ -95,12 +95,24 @@ export default {
 					yes: this.$t(Text.yes),
 				},
 				callback: (confirm) => {
-					if (confirm) this.handleDeleteTodo(todo.id);
+					if (confirm) this.handleDeleteTodo(todo);
 				},
 			});
 		},
-		handleDeleteTodo(idTodo) {
-			this.$store.dispatch('deleteTodo', idTodo);
+		handleDeleteTodo(todo) {
+			try {
+				this.$store.dispatch('deleteTodo', todo.id);
+				const successfulDeletedMessage =
+					this.$t(SuccessfulMessages.delete) +
+					Text.symbol.openingParenthesis +
+					Text.symbol.doubleQuote +
+					this.handleTodoNameInToast(todo.name) +
+					Text.symbol.doubleQuote +
+					Text.symbol.closingParenthesis;
+				useToast().success(successfulDeletedMessage, ToastOptions);
+			} catch (error) {
+				console.log(error);
+			}
 		},
 		handleCompleteTodo(todo) {
 			try {

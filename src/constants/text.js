@@ -20,6 +20,8 @@ const Text = {
 		colon: ':',
 		questionMark: '?',
 		doubleQuote: '"',
+		openingParenthesis: '(',
+		closingParenthesis: ')',
 	},
 	placeholder: {
 		yourTodo: 'Your to do...',

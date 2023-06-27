@@ -15,5 +15,6 @@
 	"All": "All",
 	"Todo": "Todo",
 	"Done": "Done",
-	"Status": "Status"
+	"Status": "Status",
+	"Deleted todo successfully.": "Deleted todo successfully."
 }
