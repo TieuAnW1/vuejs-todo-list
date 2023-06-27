@@ -5,28 +5,38 @@
 			<h3>{{ $t(noTodoText) }}</h3>
 		</div>
 		<div v-else class="existenceTodo">
-			<div
-				v-for="(todo, index) in sortedTodos"
-				:key="todo.id"
-				:class="todo.isCompleted ? 'itemTodo completedTodo' : 'itemTodo'"
-			>
-				<div class="infoTodo">
-					<oh-vue-icon
-						class="mdDownloaddoneRound"
-						name="md-downloaddone-round"
-						@click="handleCompleteTodo(todo)"
-					/>
-					<div class="valuesTodo">
-						<h3 :title="formatOrdinalNumbers(index) + symbols.dot + ' ' + todo.name">
-							{{ formatOrdinalNumbers(index) + symbols.dot + ' ' + todo.name }}
-						</h3>
-						<p class="deadlineTodo">
-							{{ $t(textInTag.deadline) + symbols.colon }} <span>{{ ' ' + todo.deadline }}</span>
-						</p>
+			<div class="filterAndSearch">
+				<Search :placeholder="$t(placeholder.search)" />
+				<Filters />
+			</div>
+			<div class="todos">
+				<div
+					v-for="(todo, index) in sortedTodos"
+					:key="todo.id"
+					:class="todo.isCompleted ? 'itemTodo completedTodo' : 'itemTodo'"
+				>
+					<div class="infoTodo">
+						<oh-vue-icon
+							class="mdDownloaddoneRound"
+							name="md-downloaddone-round"
+							@click="handleCompleteTodo(todo)"
+						/>
+						<div class="valuesTodo">
+							<h3 :title="formatOrdinalNumbers(index) + symbols.dot + ' ' + todo.name">
+								{{ formatOrdinalNumbers(index) + symbols.dot + ' ' + todo.name }}
+							</h3>
+							<p class="deadlineTodo">
+								{{ $t(textInTag.deadline) + symbols.colon }} <span>{{ ' ' + todo.deadline }}</span>
+							</p>
+						</div>
 					</div>
-				</div>
-				<div class="actions">
-					<oh-vue-icon name="ri-delete-bin-line" @click="openModalConfirm(todo)" class="riDeleteBinLine" />
+					<div class="actions">
+						<oh-vue-icon
+							name="ri-delete-bin-line"
+							@click="openModalConfirm(todo)"
+							class="riDeleteBinLine"
+						/>
+					</div>
 				</div>
 			</div>
 			<vue3-confirm-dialog></vue3-confirm-dialog>
@@ -38,9 +48,12 @@
 import { PathImages, Text, Numbers, WarningToastOptions, ToastOptions, SuccessfulMessages } from '../../constants';
 import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
+import Search from '../search/search.vue';
+import Filters from '../filters/filters.vue';
 
 export default {
 	name: 'listTodo',
+	components: { Search, Filters },
 	data() {
 		return {
 			pathImages: {
@@ -56,6 +69,9 @@ export default {
 			},
 			textInTag: {
 				deadline: Text.textInTag.deadline,
+			},
+			placeholder: {
+				search: Text.placeholder.search,
 			},
 			toastQueue: [],
 		};

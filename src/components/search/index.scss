@@ -1,0 +1,49 @@
+.search {
+	--right-search-icon: calc(var(--default-height) / 2);
+	--right-clear-icon: calc(var(--padding-default) * 7);
+	height: var(--default-height);
+	width: 100%;
+	position: relative;
+	border-radius: calc(var(--default-height) / 2);
+	display: flex;
+	align-items: center;
+
+	& input {
+		width: 100%;
+		padding-right: calc(var(--right-search-icon) + var(--right-clear-icon) + var(--padding-default) / 2);
+	}
+
+	& .BiXCircle {
+		position: absolute;
+		right: var(--right-clear-icon);
+		color: var(--placeholder-color);
+		font-size: var(--default-font-size);
+
+		&:hover {
+			cursor: pointer;
+			color: var(--text-color);
+		}
+	}
+
+	& .searchIcon {
+		height: calc(100% - var(--padding-default));
+		border-left: 1px solid var(--border-color);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		top: calc(var(--padding-default) / 2);
+		right: var(--right-search-icon);
+		padding-left: var(--padding-default);
+
+		& .ioSearchOutline {
+			scale: var(--scale-search-icon);
+			opacity: var(--search-icon-opacity);
+
+			&:hover {
+				cursor: pointer;
+				opacity: var(--default-decreased-opacity);
+			}
+		}
+	}
+}

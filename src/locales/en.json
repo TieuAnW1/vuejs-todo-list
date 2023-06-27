@@ -10,5 +10,10 @@
 	"Are you sure you want to delete todo ": "Are you sure you want to delete todo ",
 	"No": "No",
 	"Yes": "Yes",
-	"Congratulations on completing ": "Congratulations on completing "
+	"Congratulations on completing ": "Congratulations on completing ",
+	"Search todo...": "Search todo...",
+	"All": "All",
+	"Todo": "Todo",
+	"Done": "Done",
+	"Status": "Status"
 }

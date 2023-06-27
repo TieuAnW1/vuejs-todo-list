@@ -12,6 +12,7 @@ const Text = {
 		todoList: 'TO DO LIST',
 		noTodo: 'Seems like you have no todo.',
 		deadline: 'Deadline',
+		status: 'Status',
 	},
 	symbol: {
 		plus: '+',
@@ -22,6 +23,7 @@ const Text = {
 	},
 	placeholder: {
 		yourTodo: 'Your to do...',
+		search: 'Search todo...',
 	},
 	alt: {
 		noTodo: 'No todo image',
@@ -33,6 +35,11 @@ const Text = {
 	yes: 'Yes',
 	nameEvent: {
 		click: 'click',
+	},
+	statusDeadline: {
+		all: 'All',
+		todo: 'Todo',
+		done: 'Done',
 	},
 };
 

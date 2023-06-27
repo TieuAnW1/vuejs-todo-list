@@ -8,9 +8,9 @@ import Vue3ConfirmDialog from 'vue3-confirm-dialog';
 import 'vue3-confirm-dialog/style';
 import vClickOutside from 'click-outside-vue3';
 import { OhVueIcon, addIcons } from 'oh-vue-icons';
-import { RiDeleteBinLine, BiXCircle, MdDownloaddoneRound, MdArrowdropdownOutlined } from 'oh-vue-icons/icons';
+import { RiDeleteBinLine, BiXCircle, MdDownloaddoneRound, MdArrowdropdownOutlined, IoSearchOutline  } from 'oh-vue-icons/icons';
 
-addIcons(RiDeleteBinLine, BiXCircle, MdDownloaddoneRound, MdArrowdropdownOutlined);
+addIcons(RiDeleteBinLine, BiXCircle, MdDownloaddoneRound, MdArrowdropdownOutlined, IoSearchOutline );
 
 const app = createApp(App);
 app.use(VueToast);

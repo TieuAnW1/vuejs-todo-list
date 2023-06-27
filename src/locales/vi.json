@@ -10,5 +10,10 @@
 	"Are you sure you want to delete todo ": "Bạn có chắc là bạn muốn xoá việc ",
 	"No": "Không",
 	"Yes": "Có",
-	"Congratulations on completing ": "Chúc mừng bạn đã hoàn thành xong việc "
+	"Congratulations on completing ": "Chúc mừng bạn đã hoàn thành xong việc ",
+	"Search todo...": "Tìm việc...",
+	"All": "Tất cả",
+	"Todo": "Chưa làm",
+	"Done": "Hoàn thành",
+	"Status": "Trạng thái"
 }

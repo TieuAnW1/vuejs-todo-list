@@ -17,127 +17,141 @@
 
 	& .existenceTodo {
 		height: 88%;
-		overflow-y: auto;
+		display: flex;
+		flex-direction: column;
 
-		&::-webkit-scrollbar {
-			width: var(--scroll-bar-width);
-		}
-
-		&::-webkit-scrollbar-thumb {
-			border-radius: var(--scroll-bar-width);
-			background: linear-gradient(to bottom, var(--completed-todo-hover), var(--bg-item-todo));
-		}
-
-		&::-webkit-scrollbar-track {
-			background: var(--white-color);
-			border-radius: var(--scroll-bar-width);
-		}
-
-		& .itemTodo {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			margin-bottom: var(--padding-default);
-			padding: var(--padding-default);
+		.filterAndSearch {
+			height: auto;
 			width: 100%;
-			height: var(--height-item-todo);
-			border-radius: var(--border-item-todo);
-			background: var(--bg-item-todo);
-			box-shadow: var(--item-todo-shadow);
+			margin-bottom: var(--default-margin-between-sections);
+			display: flex;
+			flex-direction: column;
+			gap: var(--default-margin-between-sections);
+			border-bottom: 1px solid var(--border-bottom-filters-and-search-color);
+			padding-bottom: var(--default-margin-between-sections);
+		}
 
-			&:hover {
-				cursor: default;
-				background: var(--white-color);
+		& .todos {
+			overflow-y: auto;
+			&::-webkit-scrollbar {
+				width: var(--scroll-bar-width);
 			}
 
-			&.completedTodo {
-				background: var(--completed-todo);
+			&::-webkit-scrollbar-thumb {
+				border-radius: var(--scroll-bar-width);
+				background: linear-gradient(to bottom, var(--completed-todo-hover), var(--bg-item-todo));
+			}
+
+			&::-webkit-scrollbar-track {
+				background: var(--white-color);
+				border-radius: var(--scroll-bar-width);
+			}
+			& .itemTodo {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: var(--padding-default);
+				padding: var(--padding-default);
+				width: 100%;
+				height: var(--height-item-todo);
+				border-radius: var(--border-item-todo);
+				background: var(--bg-item-todo);
 				box-shadow: var(--item-todo-shadow);
 
 				&:hover {
-					background: var(--completed-todo-hover);
+					cursor: default;
+					background: var(--white-color);
 				}
 
-				& .actions {
-					& .riDeleteBinLine {
-						color: var(--white-color);
-					}
-				}
+				&.completedTodo {
+					background: var(--completed-todo);
+					box-shadow: var(--item-todo-shadow);
 
-				& .infoTodo {
-					& .mdDownloaddoneRound {
-						color: var(--tick-completed-todo);
+					&:hover {
+						background: var(--completed-todo-hover);
 					}
 
-					& .valuesTodo {
-						& h3 {
+					& .actions {
+						& .riDeleteBinLine {
 							color: var(--white-color);
 						}
+					}
 
-						& .deadlineTodo {
-							color: var(--white-color);
+					& .infoTodo {
+						& .mdDownloaddoneRound {
+							color: var(--tick-completed-todo);
+						}
 
-							& span {
+						& .valuesTodo {
+							& h3 {
 								color: var(--white-color);
+							}
+
+							& .deadlineTodo {
+								color: var(--white-color);
+
+								& span {
+									color: var(--white-color);
+								}
 							}
 						}
 					}
 				}
-			}
 
-			& .actions {
-				width: var(--default-height);
-				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: end;
+				& .actions {
+					width: var(--default-height);
+					height: 100%;
+					display: flex;
+					align-items: center;
+					justify-content: end;
 
-				& .riDeleteBinLine {
-					scale: var(--scale-delete-icon);
-					color: var(--delete-icon-color);
-					opacity: var(--default-decreased-opacity);
+					& .riDeleteBinLine {
+						scale: var(--scale-delete-icon);
+						color: var(--delete-icon-color);
+						opacity: var(--default-decreased-opacity);
 
-					&:hover {
-						cursor: pointer;
-						opacity: var(--default-opacity);
-					}
-				}
-			}
-
-			& .infoTodo {
-				display: flex;
-				align-items: center;
-				justify-content: start;
-				gap: var(--distance-margin-to-next-item);
-				width: calc(100% - var(--default-height));
-
-				& .mdDownloaddoneRound {
-					scale: var(--scale-tick-icon);
-					color: var(--text-color);
-					opacity: var(--default-decreased-opacity);
-
-					&:hover {
-						cursor: pointer;
-						opacity: var(--default-opacity);
+						&:hover {
+							cursor: pointer;
+							opacity: var(--default-opacity);
+						}
 					}
 				}
 
-				& .valuesTodo {
-					width: 100%;
+				& .infoTodo {
+					display: flex;
+					align-items: center;
+					justify-content: start;
+					gap: var(--distance-margin-to-next-item);
+					width: calc(100% - var(--default-height));
 
-					& h3 {
-						width: 98%;
-						white-space: nowrap;
-						overflow: hidden;
-						text-overflow: ellipsis;
-						margin-bottom: var(--distance-lines-text);
+					& .mdDownloaddoneRound {
+						scale: var(--scale-tick-icon);
+						color: var(--text-color);
+						opacity: var(--default-decreased-opacity);
+
+						&:hover {
+							cursor: pointer;
+							opacity: var(--default-opacity);
+						}
 					}
 
-					& .deadlineTodo {
-						color: var(--black-color);
+					& .valuesTodo {
+						width: 100%;
 
-						& span {
-							color: var(--deadline-todo-color);
+						& h3 {
+							width: 98%;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							margin-bottom: var(--distance-lines-text);
+						}
+
+						& .deadlineTodo {
+							color: var(--black-color);
+
+							& span {
+								color: var(--deadline-todo-color);
+							}
 						}
 					}
 				}
