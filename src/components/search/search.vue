@@ -1,6 +1,12 @@
 <template>
 	<div class="search">
-		<input type="text" v-model="searchText" :placeholder="placeholder" ref="searchInputRef" />
+		<input
+			type="text"
+			v-model="searchText"
+			:placeholder="placeholder"
+			ref="searchInputRef"
+			@input="handleSearchTodos"
+		/>
 		<oh-vue-icon v-if="searchText.length > 0" class="BiXCircle" name="bi-x-circle" @click="clearSearchText" />
 	</div>
 </template>
@@ -17,6 +23,9 @@ export default {
 		clearSearchText() {
 			this.searchText = '';
 			this.$refs.searchInputRef.focus();
+		},
+		handleSearchTodos() {
+			this.$store.dispatch('setSearchText', this.searchText);
 		},
 	},
 };

@@ -29,7 +29,7 @@
 				type="date"
 				v-model="deadlineSearch"
 				:class="{ changed: isDeadlineFilterChanged }"
-				@change="handleChangeDeadlineFilter"
+				@input="handleChangeDeadlineFilter($event)"
 			/>
 		</div>
 	</div>
@@ -64,9 +64,12 @@ export default {
 		handleChangeStatus(selectedStatus) {
 			this.currentStatus = selectedStatus;
 			this.isOpenOtherStatuses = false;
+			this.$store.dispatch('setStatusFilter', selectedStatus);
 		},
-		handleChangeDeadlineFilter() {
+		handleChangeDeadlineFilter(e) {
 			this.isDeadlineFilterChanged = true;
+			this.deadlineSearch = e.target.value;
+			this.$store.dispatch('setDeadlineFilter', this.deadlineSearch);
 		},
 	},
 	computed: {

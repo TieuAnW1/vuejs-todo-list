@@ -1,6 +1,6 @@
 <template>
 	<div class="listTodo">
-		<div v-if="sortedTodos.length === 0" class="noTodo">
+		<div v-if="sortedFilteredTodos.length === 0" class="noTodo">
 			<img :src="pathImages.noTodo.src" :alt="pathImages.noTodo.alt" />
 			<h3>{{ $t(noTodoText) }}</h3>
 		</div>
@@ -11,7 +11,7 @@
 			</div>
 			<div class="todos">
 				<div
-					v-for="(todo, index) in sortedTodos"
+					v-for="(todo, index) in sortedFilteredTodos"
 					:key="todo.id"
 					:class="todo.isCompleted ? 'itemTodo completedTodo' : 'itemTodo'"
 				>
@@ -50,6 +50,7 @@ import { useToast } from 'vue-toast-notification';
 import 'vue-toast-notification/dist/theme-sugar.css';
 import Search from '../search/search.vue';
 import Filters from '../filters/filters.vue';
+import { mapGetters } from 'vuex';
 
 export default {
 	name: 'listTodo',
@@ -117,10 +118,10 @@ export default {
 			}
 		},
 		checkTodosDeadline() {
-			if (this.sortedTodos.length > 0) {
+			if (this.sortedFilteredTodos.length > 0) {
 				const now = new Date();
 
-				this.sortedTodos.forEach((todo) => {
+				this.sortedFilteredTodos.forEach((todo) => {
 					const deadlineTodo = new Date(todo.deadline);
 					const timeDiff = deadlineTodo - now;
 					if (timeDiff <= Numbers.hour.twentyFour && timeDiff >= 0 && !todo.isCompleted)
@@ -151,10 +152,7 @@ export default {
 		},
 	},
 	computed: {
-		sortedTodos() {
-			const copiedTodos = this.$store.state.todos.slice();
-			return copiedTodos.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
-		},
+		...mapGetters(['sortedFilteredTodos']),
 	},
 	mounted() {
 		setTimeout(() => {
