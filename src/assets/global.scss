@@ -135,21 +135,3 @@ input {
 input[type='date'] {
 	color: var(--placeholder-color);
 }
-
-.wrapper {
-	width: 100%;
-	height: 100vh;
-	padding: 0 var(--padding-default);
-}
-
-.content {
-	margin: 2rem auto;
-	width: var(--max-app-width);
-	position: relative;
-}
-
-@media (max-width: 768px) {
-	.content {
-		width: inherit;
-	}
-}

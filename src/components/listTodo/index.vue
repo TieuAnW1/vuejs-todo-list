@@ -5,10 +5,6 @@
 			<h3>{{ $t(noTodoText) }}</h3>
 		</div>
 		<div v-else class="existenceTodo">
-			<div class="filterAndSearch">
-				<Search :placeholder="$t(placeholder.search)" />
-				<Filters />
-			</div>
 			<div class="todos">
 				<div
 					v-for="(todo, index) in sortedFilteredTodos"
@@ -70,9 +66,6 @@ export default {
 			},
 			textInTag: {
 				deadline: Text.textInTag.deadline,
-			},
-			placeholder: {
-				search: Text.placeholder.search,
 			},
 			toastQueue: [],
 		};
