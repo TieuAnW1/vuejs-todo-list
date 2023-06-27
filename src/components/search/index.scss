@@ -1,0 +1,26 @@
+.search {
+	--right-clear-icon: calc(var(--default-height) / 2);
+	height: var(--default-height);
+	width: 100%;
+	position: relative;
+	border-radius: calc(var(--default-height) / 2);
+	display: flex;
+	align-items: center;
+
+	& input {
+		width: 100%;
+		padding-right: var(--default-height);
+	}
+
+	& .BiXCircle {
+		position: absolute;
+		right: calc(var(--default-height) / 2 - 6px);
+		color: var(--placeholder-color);
+		font-size: var(--default-font-size);
+
+		&:hover {
+			cursor: pointer;
+			color: var(--text-color);
+		}
+	}
+}

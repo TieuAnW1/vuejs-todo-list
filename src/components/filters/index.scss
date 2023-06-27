@@ -1,0 +1,116 @@
+.filters {
+	--item-filters-width: 48%;
+	--item-padding: calc(var(--default-height) / 2 - 6px);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: var(--default-height);
+	gap: calc(var(--default-gap));
+
+	& .status {
+		height: inherit;
+		display: flex;
+		width: var(--item-filters-width);
+		padding-left: var(--item-padding);
+		position: relative;
+
+		& .currentStatus {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 var(--item-padding);
+			flex: 1;
+			background: var(--white-color);
+			border-radius: calc(var(--default-height) / 2);
+			box-shadow: var(--item-todo-shadow);
+
+			& p {
+				color: var(--text-color);
+			}
+
+			& .mdArrowdropdownOutlined {
+				color: var(--text-color);
+				scale: var(--scale-dropdown-icon);
+				opacity: var(--default-decreased-opacity);
+
+				&:hover {
+					cursor: pointer;
+					opacity: var(--default-opacity);
+				}
+			}
+		}
+
+		& .otherStatuses {
+			background: var(--white-color);
+			height: auto;
+			width: var(--other-statuses-width);
+			position: absolute;
+			top: 100%;
+			right: var(--item-padding);
+			padding: var(--padding-default);
+			box-shadow: var(--item-todo-shadow);
+			border-radius: var(--border-item-todo);
+
+			& .otherStatus {
+				height: var(--default-height);
+				border-bottom: 1px solid var(--border-color);
+
+				&:last-child {
+					border: none;
+				}
+
+				&:hover {
+					cursor: pointer;
+					background-color: var(--text-color);
+				}
+
+				& p {
+					line-height: var(--default-height);
+					color: var(--black-color);
+					padding-left: var(--padding-default);
+
+					&:hover {
+						color: var(--white-color);
+					}
+				}
+			}
+		}
+	}
+
+	& .deadline {
+		width: var(--item-filters-width);
+		height: inherit;
+		display: flex;
+
+		& input {
+			flex: 1;
+			min-width: var(--min-width-input-date);
+		}
+	}
+}
+
+p {
+	line-height: var(--default-height);
+	margin-right: var(--distance-margin-to-next-item);
+}
+
+.filterBy {
+	color: var(--white-color);
+}
+
+input[type='date'].changed {
+	color: var(--text-color);
+}
+
+@media (max-width: 595px) {
+	p.filterBy {
+		display: none;
+	}
+
+	.filters {
+		& .status {
+			padding-left: 0;
+		}
+	}
+}

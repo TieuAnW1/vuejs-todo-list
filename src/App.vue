@@ -3,9 +3,13 @@
 <template>
 	<div class="wrapper">
 		<div class="content">
-			<headerComponent></headerComponent>
-			<addTodo></addTodo>
-			<listTodo></listTodo>
+			<headerComponent />
+			<div class="filtersAndSearch">
+				<search :placeholder="$t(placeholder.search)" />
+				<filters />
+			</div>
+			<listTodo />
+			<addTodo />
 		</div>
 	</div>
 </template>
@@ -14,10 +18,12 @@
 import headerComponent from './components/headerComponent/index.vue';
 import addTodo from './components/addTodo/index.vue';
 import listTodo from './components/listTodo/index.vue';
+import search from './components/search/search.vue';
+import filters from './components/filters/filters.vue';
 import { Text } from './constants';
 
 export default {
-	components: { headerComponent, addTodo, listTodo },
+	components: { headerComponent, addTodo, listTodo, search, filters },
 	created() {
 		const currentLanguageApp = localStorage.getItem(Text.keyLocalStorage.currentLanguageApp);
 		if (!currentLanguageApp) {
@@ -28,10 +34,18 @@ export default {
 		}
 		this.$store.dispatch('initializeTodos');
 	},
+	data() {
+		return {
+			placeholder: {
+				search: Text.placeholder.search,
+			},
+		};
+	},
 };
 </script>
 
 <style>
 @import './assets/global.scss';
+@import './assets/app.scss';
 @import './assets/overrideVue3ModalConfirm.scss';
 </style>

@@ -8,7 +8,7 @@
 			type="date"
 			v-model="deadlineTodo"
 			:class="{ changed: isDeadlineChanged }"
-			@change="handleChangeDeadline"
+			@change="handleChangeDeadline($event)"
 		/>
 		<button @click="handleAddNewTodo" :title="$t(text.add)" :disabled="nameTodo === '' || deadlineTodo === ''">{{
 			text.plus
@@ -66,8 +66,8 @@ export default {
 			this.nameTodo = '';
 			this.$refs.nameTodoInput.focus();
 		},
-		handleChangeDeadline() {
-			this.isDeadlineChanged = true;
+		handleChangeDeadline(e) {
+			this.isDeadlineChanged = !!e.target.value;
 		},
 	},
 	mounted() {

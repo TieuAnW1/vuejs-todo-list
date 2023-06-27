@@ -18,6 +18,8 @@
 	--flag-border-color: #d3d3d3;
 	--border-input-focus-color: #2baeda;
 	--shadow-input-focus-color: rgba(62, 152, 220, 0.25);
+	--border-color: #d5d5d5;
+	--border-bottom-filters-and-search-color: #e9e9e9;
 
 	/* Width  */
 	--max-app-width: 660px;
@@ -26,6 +28,8 @@
 	--flag-and-dropdown-width: 6.4rem;
 	--dropdown-width: 2rem;
 	--image-flag: 3.6rem;
+	--min-width-input-date: 15.2rem;
+	--other-statuses-width: 12rem;
 
 	/* Height  */
 	--default-height: 44px;
@@ -44,6 +48,7 @@
 	/* Opacity  */
 	--default-opacity: 1;
 	--default-decreased-opacity: 0.7;
+	--search-icon-opacity: 0.4;
 
 	/* Margin */
 	--default-margin-between-sections: 1rem;
@@ -64,6 +69,7 @@
 	--scale-delete-icon: 1.1;
 	--scale-tick-icon: 1.6;
 	--scale-dropdown-icon: 1.5;
+	--scale-search-icon: 1.2;
 
 	/* Gap */
 	--default-gap: 0.4rem;
@@ -113,6 +119,8 @@ input {
 	caret-color: var(--text-color);
 	color: var(--text-color);
 	font-size: var(--default-font-size);
+	box-shadow: var(--item-todo-shadow);
+	background: var(--white-color);
 
 	&::placeholder {
 		color: var(--placeholder-color);
@@ -126,22 +134,4 @@ input {
 
 input[type='date'] {
 	color: var(--placeholder-color);
-}
-
-.wrapper {
-	width: 100%;
-	height: 100vh;
-	padding: 0 var(--padding-default);
-}
-
-.content {
-	margin: 2rem auto;
-	width: var(--max-app-width);
-	position: relative;
-}
-
-@media (max-width: 768px) {
-	.content {
-		width: inherit;
-	}
 }

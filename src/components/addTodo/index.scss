@@ -40,7 +40,7 @@
 
 	& input {
 		width: 30%;
-		min-width: 15.2rem;
+		min-width: var(--min-width-input-date);
 		margin-right: calc(var(--distance-margin-to-next-item) / 2);
 	}
 
