@@ -23,6 +23,7 @@ export default {
 		clearSearchText() {
 			this.searchText = '';
 			this.$refs.searchInputRef.focus();
+			this.handleSearchTodos();
 		},
 		handleSearchTodos() {
 			this.$store.dispatch('setSearchText', this.searchText);
