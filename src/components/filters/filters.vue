@@ -67,7 +67,7 @@ export default {
 			this.$store.dispatch('setStatusFilter', selectedStatus);
 		},
 		handleChangeDeadlineFilter(e) {
-			this.isDeadlineFilterChanged = true;
+			this.isDeadlineFilterChanged = !!e.target.value;
 			this.deadlineSearch = e.target.value;
 			this.$store.dispatch('setDeadlineFilter', this.deadlineSearch);
 		},
